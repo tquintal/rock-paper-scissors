@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+    <script type="text/javascript" src="./script.js"></script>
+  </head>
+  <body>
+    <div class="title">
+      <h1>Rock Paper Scissors</h1>
+      <p>Click the icons to play!</p>
+    </div>
+    <div class="buttons-container">
+      <div class="button hvr-pulse-grow" id="1" onclick="play(1)">
+        <img src="./assets/rock.png" />
+      </div>
+      <div class="button hvr-pulse-grow" id="2" onclick="play(2)">
+        <img src="./assets/paper.png" />
+      </div>
+      <div class="button hvr-pulse-grow" id="3" onclick="play(3)">
+        <img src="./assets/scissors.png" />
+      </div>
+    </div>
+    <h1 class="h1-score">Scoreboard</h1>
+    <div class="score-container">
+      <h2 id="hyou">You: 0</h2>
+      <h2 id="hcomputer">Computer: 0</h2>
+    </div>
+    <h2 id="htie">You won this round, this beats that!</h2>
+    <h1 id="hwinner">Winner!</h1>
+  </body>
+</html>
