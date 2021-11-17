@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-body {
+main {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,16 +16,49 @@ body {
   color: white;
 }
 
+.mobile-container {
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #131313;
+}
+
+.mobile-container h1 {
+  font-size: 18px;
+  width: 80%;
+  text-align: center;
+  color: white;
+}
+
 .title {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   top: 0;
   left: 0;
   position: absolute;
   padding: 25px;
 }
 
-.title p {
-  font-size: 12px;
-  margin-top: 5px;
+.reset-button {
+  padding: 15px;
+  width: max-content;
+  height: max-content;
+  color: #111111;
+  font: inherit;
+  outline: inherit;
+  cursor: pointer;
+  border: none;
+  transition: 300ms;
+}
+
+@media (hover: hover) {
+  .reset-button:hover {
+    transition: 300ms;
+    background-color: #505050;
+    color: #ffffff;
+  }
 }
 
 .buttons-container {
@@ -42,10 +75,6 @@ body {
   margin: 20px;
 }
 
-.h1-score {
-  margin-top: 30px;
-}
-
 .score-container {
   display: flex;
   padding: 30px;
@@ -59,6 +88,55 @@ body {
 
 #hwinner {
   margin-top: 30px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+  /* text-align: center; */
+  position: absolute;
+  margin: 10px;
+  bottom: 0;
+}
+
+footer a,
+footer p {
+  width: fit-content;
+}
+
+footer a,
+footer span {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+}
+
+footer a {
+  transition: 300ms;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+footer a:hover {
+  transition: 300ms;
+  color: #886ce4;
+}
+
+footer p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  color: #8f8f8f;
+  transition: 300ms;
+  cursor: context-menu;
+}
+
+@media (hover: hover) {
+  footer p:hover {
+    transition: 300ms;
+    color: #ffffff;
+  }
 }
 
 /* Animations | Hover */
@@ -104,18 +182,37 @@ body {
 }
 
 /* Mobile */
-@media screen and (max-width: 525px) {
+@media screen and (max-width: 625px) {
+  main {
+    display: none;
+  }
+
+  .mobile-container {
+    display: flex;
+  }
+}
+
+/* @media screen and (max-width: 525px) {
+  .title h2,
+  .title h3,
+  .title button {
+    display: none;
+  }
+
   .title h1,
+  .title h2,
+  .title h3,
   .h1-score,
   #hyou,
   #hcomputer,
   #htie,
   #hwinner {
-    font-size: 20px;
+    font-size: 18px;
   }
 
-  .buttons-container {
-    margin-top: 80px;
+  .reset-button {
+    font-size: 12px;
+    padding: 5px;
   }
 
   .button img {
@@ -138,4 +235,4 @@ body {
     margin-left: 25px;
     margin-right: 25px;
   }
-}
+} */

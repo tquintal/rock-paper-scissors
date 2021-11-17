@@ -6,6 +6,8 @@ let computerScore = 0;
 
 const game = () => {
 
+    clearRounds();
+
     const computerPlay = () => {
         const values = ["rock", "paper", "scissors"];
         return values[Math.floor(Math.random() * values.length)];
@@ -38,20 +40,22 @@ const game = () => {
                 }
             }
         } else {
-            return `Error! ${playerSelection} is not valid. \n`;
+            alert(`Error! "${playerSelection}" is not valid. \n`);
         }
 
     }
 
-    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection);
 
     if (computerScore === 5 || playerScore === 5) {
         if (computerScore === 5) {
+            checkRounds();
             document.getElementById("hwinner").textContent = "Loser!";
             document.getElementById('hwinner').style.opacity = 1;
             document.getElementById("hwinner").style.color = "red";
         }
         if (playerScore === 5) {
+            checkRounds();
             document.getElementById("hwinner").textContent = "Winner!";
             document.getElementById('hwinner').style.opacity = 1;
             document.getElementById("hwinner").style.color = "#00ff00";
@@ -60,28 +64,84 @@ const game = () => {
 
 }
 
-const play = value => {
+// KEYPRESSPLAY
+const keyPressPlay = (e) => {
 
-    document.getElementById('htie').style.opacity = 0;
-
-    if (value === 1) {
+    if (e.keyCode === 82) {
         playerSelection = "Rock".toLowerCase();
-    } else if (value === 2) {
+    } else if (e.keyCode === 80) {
         playerSelection = "Paper".toLowerCase();
-    } else {
+    } else if (e.keyCode === 83) {
         playerSelection = "Scissors".toLowerCase();
-    };
+    } else {
+        return;
+    }
+    console.log(e.keyCode);
+    game();
+}
+
+window.addEventListener('keydown', keyPressPlay);
+
+// CLICKBUTTONPLAY
+const btn1 = document.querySelector('#btn1');
+btn1.addEventListener('click', () => {
+
+    playerSelection = "Rock".toLowerCase();
+    game();
+
+});
+
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', () => {
+
+    playerSelection = "Paper".toLowerCase();
+    game();
+
+});
+
+const btn3 = document.querySelector('#btn3');
+btn3.addEventListener('click', () => {
+
+    playerSelection = "Scissors".toLowerCase();
+    game();
+
+});
+
+// Helpers
+let yRounds = parseInt(localStorage.getItem('yRounds')) || 0;
+document.getElementById("yRounds").textContent = `You: ${yRounds}`;
+console.log("Type of 'yRounds': ", typeof yRounds);
+
+let pcRounds = parseInt(localStorage.getItem('pcRounds')) || 0;
+document.getElementById("pcRounds").textContent = `Computer: ${pcRounds}`;
+console.log("Type of 'pcRounds': ", typeof pcRounds);
+
+const checkRounds = () => {
+    if (computerScore === 5 || playerScore === 5) {
+        if (computerScore === 5) {
+            pcRounds += 1;
+            localStorage.setItem('pcRounds', pcRounds);
+            document.getElementById("pcRounds").textContent = `Computer: ${pcRounds}`;
+        } else if (playerScore === 5) {
+            yRounds += 1;
+            localStorage.setItem('yRounds', yRounds);
+            document.getElementById("yRounds").textContent = `You: ${yRounds}`;
+        } else {
+            return;
+        }
+    } else {
+        return;
+    }
+}
+
+const clearRounds = () => {
     if (computerScore === 5 || playerScore === 5) {
         document.getElementById("hyou").textContent = `You: ${playerScore = 0}`;
         document.getElementById("hcomputer").textContent = `Computer: ${computerScore = 0}`
         document.getElementById('hwinner').style.opacity = 0;
     }
-
-    game();
-
 }
 
-// Helper
 const winnerH = () => {
     if (winner === "player") {
         return document.getElementById("hyou").textContent = `You: ${playerScore += 1}`,
@@ -95,3 +155,15 @@ const winnerH = () => {
         return document.getElementById('htie').textContent = `Tie Game!`, document.getElementById('htie').style.opacity = 1;
     }
 }
+
+const resetButton = document.querySelector('#reset-button');
+resetButton.addEventListener('click', () => {
+
+    pcRounds = 0;
+    yRounds = 0;
+    localStorage.setItem('pcRounds', pcRounds);
+    document.getElementById("pcRounds").textContent = `Computer: ${pcRounds}`;
+    localStorage.setItem('yRounds', yRounds);
+    document.getElementById("yRounds").textContent = `You: ${yRounds}`;
+
+});

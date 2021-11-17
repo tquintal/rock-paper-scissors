@@ -13,30 +13,43 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style/style.css" />
-    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="./script.js" defer></script>
   </head>
   <body>
-    <div class="title">
-      <h1>Rock Paper Scissors</h1>
-      <p>Click the icons to play!</p>
-    </div>
-    <div class="buttons-container">
-      <div class="button hvr-pulse-grow" id="1" onclick="play(1)">
-        <img src="./assets/rock.png" />
+    <main>
+      <div class="title">
+        <h1>Rock Paper Scissors - 5 round game</h1>
+        <h2>Scoreboard:</h2>
+        <h3 id="yRounds"></h3>
+        <h3 id="pcRounds"></h3>
+        <button class="reset-button" id="reset-button">Reset Scoreboard</button>
       </div>
-      <div class="button hvr-pulse-grow" id="2" onclick="play(2)">
-        <img src="./assets/paper.png" />
+      <div class="buttons-container buttons">
+        <div class="button hvr-pulse-grow" id="btn1">
+          <img src="./assets/rock.png" />
+        </div>
+        <div class="button hvr-pulse-grow" id="btn2">
+          <img src="./assets/paper.png" />
+        </div>
+        <div class="button hvr-pulse-grow" id="btn3">
+          <img src="./assets/scissors.png" />
+        </div>
       </div>
-      <div class="button hvr-pulse-grow" id="3" onclick="play(3)">
-        <img src="./assets/scissors.png" />
+      <div class="score-container">
+        <h2 id="hyou">You: 0</h2>
+        <h2 id="hcomputer">Computer: 0</h2>
       </div>
+      <h2 id="htie">You won this round, this beats that!</h2>
+      <h1 id="hwinner">Winner!</h1>
+      <footer>
+        <a href="https://github.com/tquintal/" target="_blank" rel="noreferrer"
+          >Made with 💜 by <span>Tomás Quintal</span></a
+        >
+        <p>Instructions: press keys "R", "P" and "S" or click the buttons</p>
+      </footer>
+    </main>
+    <div class="mobile-container">
+      <h1>Not available for mobile devices yet.</h1>
     </div>
-    <h1 class="h1-score">Scoreboard</h1>
-    <div class="score-container">
-      <h2 id="hyou">You: 0</h2>
-      <h2 id="hcomputer">Computer: 0</h2>
-    </div>
-    <h2 id="htie">You won this round, this beats that!</h2>
-    <h1 id="hwinner">Winner!</h1>
   </body>
 </html>
