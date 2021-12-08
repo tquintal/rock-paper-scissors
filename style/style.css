@@ -7,7 +7,7 @@
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,7 +96,7 @@ footer {
   gap: 10px;
   width: 100%;
   align-items: center;
-  /* text-align: center; */
+  text-align: center;
   position: absolute;
   margin: 10px;
   bottom: 0;
@@ -183,56 +183,61 @@ footer p {
 
 /* Mobile */
 @media screen and (max-width: 625px) {
-  main {
-    display: none;
+  * {
+    font-family: "Courier New", Courier, monospace;
+    text-align: center;
   }
 
-  .mobile-container {
-    display: flex;
-  }
-}
-
-/* @media screen and (max-width: 525px) {
-  .title h2,
-  .title h3,
-  .title button {
-    display: none;
+  h1 {
+    font-size: 16px;
   }
 
-  .title h1,
-  .title h2,
-  .title h3,
-  .h1-score,
-  #hyou,
-  #hcomputer,
-  #htie,
-  #hwinner {
-    font-size: 18px;
+  h2 {
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 13px;
   }
 
   .reset-button {
-    font-size: 12px;
-    padding: 5px;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  main {
+    justify-content: flex-start;
+  }
+
+  .title {
+    top: unset;
+    left: unset;
+    position: unset;
+    align-items: center;
   }
 
   .button img {
-    width: 75px;
-    margin: 8px;
-  }
-
-  .h1-score,
-  #hwinner {
-    margin-top: 15px;
-  }
-
-  .score-container {
-    padding: 15px;
-    gap: 35px;
+    width: 70px;
+    height: auto;
+    margin: 12px;
   }
 
   #htie {
-    text-align: center;
-    margin-left: 25px;
-    margin-right: 25px;
+    padding: 10px;
   }
-} */
+
+  #hwinner {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  footer {
+    padding: 10px;
+  }
+
+  footer a,
+  footer span,
+  footer p {
+    font-size: 12px;
+  }
+}
